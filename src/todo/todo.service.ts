@@ -7,8 +7,9 @@ import { UpdateTodoDto } from 'src/todo/dto/updateTodoDto';
 export class TodoService {
     private todos = [];
 
-    getTodos():TodoModel[] {
-      return this.todos;
+    getTodos():any[] {
+        if (this.todos.length==0) return ["You have nothing to do!"];
+        return this.todos;
     }
 
     addTodo(todoDto: AddTodoDto):TodoModel {
@@ -19,7 +20,7 @@ export class TodoService {
         return todo;
     }
 
-    getTodo(id):any {
+    getTodo(id):TodoModel {
         var obj=this.todos.find(x=> x.id==id);
         if (!obj) throw new NotFoundException('Todo not found');
         return  obj;

@@ -9,7 +9,7 @@ export class TodoController {
   constructor(private todoService: TodoService) {}
 
   @Get()
-  getTodos():TodoModel[] {
+  getTodos():any[] {
     return this.todoService.getTodos();
   }
 
@@ -19,7 +19,7 @@ export class TodoController {
   }
 
   @Get(':id')
-  getTodo(@Param('id') id):any {
+  getTodo(@Param('id') id):TodoModel {
     return this.todoService.getTodo(id);
   }
 
