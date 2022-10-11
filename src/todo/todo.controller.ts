@@ -6,10 +6,10 @@ import { TodoService } from "src/todo/todo.service";
 
 @Controller('todo')
 export class TodoController {
-  constructor(private todoService: TodoService) {}
+  constructor(private readonly todoService: TodoService) {}
 
   @Get()
-  getTodos():any[] {
+  getTodos():TodoModel[] {
     return this.todoService.getTodos();
   }
 
@@ -19,17 +19,17 @@ export class TodoController {
   }
 
   @Get(':id')
-  getTodo(@Param('id') id):TodoModel {
+  getTodo(@Param('id') id: string):TodoModel {
     return this.todoService.getTodo(id);
   }
 
   @Delete(':id')
-  deleteTodo(@Param('id') id):any {
+  deleteTodo(@Param('id') id: string):TodoModel {
     return this.todoService.deleteTodo(id);
   }
 
   @Put(':id')
-  updateTodo(@Body() updateTodoDto: UpdateTodoDto):any {
+  updateTodo(@Body() updateTodoDto: UpdateTodoDto):TodoModel {
     return this.todoService.updateTodo(updateTodoDto);
   }
 }

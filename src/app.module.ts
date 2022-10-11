@@ -6,10 +6,12 @@ import { PremierController } from './premier/premier.controller';
 import { TodoModule } from './todo/todo.module';
 import { TodoController } from './todo/todo.controller';
 import { TodoService } from './todo/todo.service';
+import { CommonModule } from './todo/commonModule/commonModule';
+import { GenerateIDService } from './todo/commonModule/commonModule.service';
 
 @Module({
-  imports: [PremierModule, TodoModule],
+  imports: [PremierModule, TodoModule, CommonModule],
   controllers: [AppController, PremierController, TodoController],
-  providers: [AppService, TodoService],
+  providers: [AppService, TodoService, GenerateIDService],
 })
 export class AppModule {}
