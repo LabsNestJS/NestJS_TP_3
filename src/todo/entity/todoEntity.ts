@@ -1,9 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { TodoStatusEnum } from 'src/todo/todoEnum';
-import { TiemstampEntity } from 'src/todo/entity/tiemstampEntity';
+import { TimestampEntity } from 'src/todo/entity/timestampEntity';
 
 @Entity('todo')
-export class TodoEntity extends TiemstampEntity {
+export class TodoEntity extends TimestampEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

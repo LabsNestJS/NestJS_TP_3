@@ -9,10 +9,12 @@ import { TodoController } from './todo/todo.controller';
 import { TodoService } from './todo/todo.service';
 import { CommonModule } from './todo/commonModule/commonModule';
 import { GenerateIDService } from './todo/commonModule/commonModule.service';
+import { DiversModule } from './divers/divers.module';
+import { DiversController } from './divers/divers.controller';
 import { TodoEntity } from './todo/entity/todoEntity';
 
 @Module({
-  imports: [PremierModule, TodoModule, CommonModule, TodoEntity, TypeOrmModule.forRoot({
+  imports: [PremierModule, TodoModule, CommonModule, DiversModule, TodoEntity, TypeOrmModule.forRoot({
     type: "mysql",
     host: "localhost",
     port: 3306,
@@ -23,7 +25,7 @@ import { TodoEntity } from './todo/entity/todoEntity';
     synchronize: true,
     logging: true,
   })],
-  controllers: [AppController, PremierController, TodoController],
+  controllers: [AppController, PremierController, TodoController, DiversController],
   providers: [AppService, TodoService, GenerateIDService],
 })
 export class AppModule {}
