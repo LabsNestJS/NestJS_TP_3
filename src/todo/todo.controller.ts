@@ -29,7 +29,7 @@ export class TodoController {
   }
 
   @Put(':id')
-  updateTodo(@Body() updateTodoDto: UpdateTodoDto):TodoModel {
-    return this.todoService.updateTodo(updateTodoDto);
+  updateTodo(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto):TodoModel {
+    return this.todoService.updateTodo(id, updateTodoDto);
   }
 }

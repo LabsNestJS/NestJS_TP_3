@@ -5,6 +5,8 @@ import { UpdateTodoDto } from 'src/todo/dto/updateTodoDto';
 import { TodoStatusEnum } from './todoEnum';
 import { GenerateIDService } from 'src/todo/commonModule/commonModule.service'
 
+
+
 @Injectable()
 export class TodoService {
     constructor(private generateIDService: GenerateIDService){}
@@ -15,7 +17,7 @@ export class TodoService {
         return this.todos;
     }
 
-    addTodo(todoDto: AddTodoDto){
+    addTodo(todoDto:AddTodoDto){
         const _:TodoModel={
             id: this.generateIDService.generate(),
             name: todoDto.name,
@@ -42,8 +44,8 @@ export class TodoService {
         else throw new NotFoundException('Todo not found already!');
     } 
 
-    updateTodo(updateTodoDto:UpdateTodoDto):any {
-        var obj= this.todos.find(x=> x.id==x.id)
+    updateTodo(id: string, updateTodoDto:UpdateTodoDto):any {
+        var obj= this.todos.find(x=> x.id==id);
         if (!obj) throw new NotFoundException('Todo not found to be updated!');
         obj.name= updateTodoDto.name??obj.name;
         obj.description=  updateTodoDto.description ?? obj.description;
