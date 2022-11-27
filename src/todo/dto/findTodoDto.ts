@@ -1,5 +1,5 @@
 import { IsEnum, IsOptional } from 'class-validator';
-import { TodoStatusEnum } from 'src/todo/todoEnum';
+import { TodoStatusEnum } from '../../todo/todoEnum';
 
 export class FindTodoDto {
 

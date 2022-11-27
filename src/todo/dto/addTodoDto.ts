@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString, MaxLength, MinLength, ValidationArguments } from 'class-validator';
-import { TodoStatusEnum } from 'src/todo/todoEnum';
+import { TodoStatusEnum } from '../../todo/todoEnum';
 
 export class AddTodoDto {
   id: string;

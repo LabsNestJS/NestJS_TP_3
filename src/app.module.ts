@@ -6,18 +6,20 @@ import { PremierModule } from './premier/premier.module';
 import { TodoModule } from './todo/todo.module';
 import { CommonModule } from './todo/commonModule/commonModule';
 import { DiversModule } from './divers/divers.module';
-import { TodoEntity } from './todo/entity/todoEntity';
+import { UserModule } from './user/user.module';
+import { CvModule } from './cv/cv.module';
+import { SkillModule } from './skill/skill.module';
 
 
 @Module({
-  imports: [PremierModule, TodoModule, CommonModule, DiversModule, TodoEntity, TypeOrmModule.forRoot({
+  imports: [PremierModule, TodoModule, CommonModule, DiversModule, UserModule, CvModule, SkillModule, TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
     port: 3306,
     username: 'root',
     password: '1329566',
     database: 'nestjs',
-    entities: [TodoEntity],
+    autoLoadEntities: true,
     synchronize: true
   })],
   controllers: [AppController],

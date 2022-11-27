@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { TodoModel } from 'src/todo/todoModel';
-import { AddTodoDto } from 'src/todo/dto/addTodoDto';
-import { UpdateTodoDto } from 'src/todo/dto/updateTodoDto';
+import { TodoModel } from '../todo/todoModel';
+import { AddTodoDto } from '../todo/dto/addTodoDto';
+import { UpdateTodoDto } from '../todo/dto/updateTodoDto';
 import { TodoStatusEnum } from './todoEnum';
-import { GenerateIDService } from 'src/todo/commonModule/commonModule.service'
+import { GenerateIDService } from '../todo/commonModule/commonModule.service'
 
 
 

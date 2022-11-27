@@ -1,7 +1,7 @@
 import { PartialType } from "@nestjs/mapped-types";
 import { IsOptional, IsEnum, MaxLength, MinLength, ValidationArguments } from "class-validator";
 import { AddTodoDto } from "./addTodoDto";
-import { TodoStatusEnum } from "src/todo/todoEnum";
+import { TodoStatusEnum } from "../../todo/todoEnum";
 
 export class UpdateTodoDto extends PartialType (AddTodoDto) 
 {

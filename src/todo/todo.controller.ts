@@ -1,8 +1,8 @@
 import { Controller, Body, Param, Get, Post, Delete, Put } from '@nestjs/common';
-import { TodoModel } from 'src/todo/todoModel';
-import { AddTodoDto } from 'src/todo/dto/addTodoDto';
-import { UpdateTodoDto } from "src/todo/dto/updateTodoDto";
-import { TodoService } from "src/todo/todo.service";
+import { TodoModel } from '../todo/todoModel';
+import { AddTodoDto } from '../todo/dto/addTodoDto';
+import { UpdateTodoDto } from "../todo/dto/updateTodoDto";
+import { TodoService } from "../todo/todo.service";
 
 @Controller('todo')
 export class TodoController {

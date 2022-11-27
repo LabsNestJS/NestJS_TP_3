@@ -5,7 +5,7 @@ import { TodoDBService } from './todoDB.service';
 import { AddTodoDto } from './dto/AddTodoDto';
 import { UpdateTodoDto } from './dto/updateTodoDto';
 import { FindTodoDto } from './dto/findTodoDto';
-import { TodoStatusEnum } from './todoEnum';
+
 
 @Controller('todoDB')
 export class TodoDBController {
