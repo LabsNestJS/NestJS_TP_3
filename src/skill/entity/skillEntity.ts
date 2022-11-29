@@ -9,8 +9,20 @@ export class Skill {
   @Column()
   designation: string;
 
-  @ManyToMany(()=>Cv, cv=>cv.skills)
-  @JoinTable()
+  @ManyToMany(()=>Cv, (cv: Cv) => cv.skills)
+  @JoinTable({
+    name: 'cv_skill',
+    joinColumn: 
+    {
+      name: 'cv',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: 
+    {
+      name: 'skill',
+      referencedColumnName: 'id',
+    },
+  })
   cvs: Cv[];
 
   @DeleteDateColumn()

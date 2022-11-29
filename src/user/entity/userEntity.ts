@@ -15,10 +15,8 @@ export class User {
     @Column()
     password: string;
 
-    @OneToMany(
-      () => Cv,(cv)=>cv.user,
-      )
-      cvs : Cv[] ;
+    @OneToMany(() => Cv,(cv: Cv)=>cv.user)
+    cvs : Cv[] ;
 
     @DeleteDateColumn()
     del : any;

@@ -7,9 +7,9 @@ import { UpdateCvDto } from '../cv/dto/updateCvDto';
 export class CvController {
   constructor(private readonly cvService: CvService) {}
 
-  @Post(':id')
-  addCv(@Body() createCvDto: CreateCvDto, id:string) {
-    return this.cvService.addCv(createCvDto,id);
+  @Post()
+  addCv(@Body() createCvDto: CreateCvDto) {
+    return this.cvService.addCv(createCvDto);
   }
 
   @Get(':id')
@@ -23,27 +23,12 @@ export class CvController {
   }
 
   @Patch(':id')
-  updateUser(@Param('id') id: string, @Body() updateCvDto: UpdateCvDto) {
+  updateCv(@Param('id') id: string, @Body() updateCvDto: UpdateCvDto) {
       return this.cvService.updateCv(id, updateCvDto);
   }
 
   @Delete(':id')
   deleteCv(@Param('id') id: string) {
     return this.cvService.deleteCv(id);
-  }
-
-  @Post(':cvId/:skillId')
-  addSkill(@Param('skillId') skillId: string, @Param('cvId') cvId: string) {
-    return this.cvService.addSkill(skillId,cvId);
-  }
-
-  @Get(':id/skills')
-  getSkills(@Param('id') id: string) {
-    return this.cvService.getSkills(id);
-  }
-  
-  @Delete(':cvId/:skillId')
-  deleteSkill(@Param('skillId') skillId: string, @Param('cvId') cvId: string) {
-    return this.cvService.deleteSkill(skillId,cvId);
   }
 }

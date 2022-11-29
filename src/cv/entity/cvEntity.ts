@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, DeleteDateColumn } from 'typeorm';
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, DeleteDateColumn} from 'typeorm';
 import { User } from '../../user/entity/userEntity';
 import {Skill} from '../../skill/entity/skillEntity';
 
@@ -26,10 +26,10 @@ export class Cv {
   @Column()
   path: string;
 
-  @ManyToOne(()=>User)
+  @ManyToOne(() => User, (user: User) => user.cvs,  {eager:true})
   user: User;
    
-  @ManyToMany(()=>Skill, (skill: { cvs: any; })=>skill.cvs  )
+  @ManyToMany(()=>Skill, (skill: Skill) => skill.cvs, {eager:true})
   skills: Skill[];
 
   @DeleteDateColumn()

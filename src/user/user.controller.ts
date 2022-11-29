@@ -11,15 +11,15 @@ export class UserController {
     addUser(@Body() createUserDto: CreateUserDto) {
         return this.userService.addUser(createUserDto);
     }
+    
+    @Get(':id')
+    getUser(@Param('id') id: string) {
+        return this.userService.getUser(id);
+    }
 
     @Get()
     getUsers() {
         return this.userService.getUsers();
-    }
-
-    @Get(':id')
-    getUser(@Param('id') id: string) {
-        return this.userService.getUser(id);
     }
 
     @Patch(':id')

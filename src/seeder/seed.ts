@@ -13,13 +13,14 @@ async function bootstrap () {
     const userService = app.get(UserService);
     const cvService = app.get(CvService);
     const skillService = app.get(SkillService);
+    const skills: Skill[]=[];
     for (let i=0;i<10;i++){
         const newUser = new User();
         newUser.username = randUserName();
         newUser.email = randEmail();
         newUser.password = randPassword();
         await userService.addUser(newUser);
-
+        
         const newCv = new Cv();
         newCv.name = randLastName();
         newCv.firstname = randFirstName();
@@ -27,12 +28,14 @@ async function bootstrap () {
         newCv.cin = randSequence();
         newCv.job = randJobTitle();
         newCv.path = randFilePath();
-        await cvService.addCv(newCv, newUser.id);
+        newCv.skills=skills;
+        newCv.user=newUser;
+        await cvService.addCv(newCv);
         
         const newSkill = new Skill();
         newSkill.designation = randSkill();
+        skills[i]=newSkill;
         await skillService.addSkill(newSkill);
-        newSkill.cvs = [newCv];
     }
     await app.close();
 }

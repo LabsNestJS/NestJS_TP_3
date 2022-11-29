@@ -12,14 +12,14 @@ export class SkillController {
     return this.skillService.addSkill(createSkillDto);
   }
 
-  @Get()
-  getSkills() {
-    return this.skillService.getSkills();
-  }
-
   @Get(':id')
   getSkill(@Param('id') id: string) {
     return this.skillService.getSkill(id);
+  }
+
+  @Get()
+  getSkills() {
+    return this.skillService.getSkills();
   }
 
   @Patch(':id')

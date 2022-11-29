@@ -14,17 +14,17 @@ export class UserService {
         return this.userRepository.save(createUserDto);
     }
 
-    getUsers() {
-        if (!this.userRepository) return ["You have nothing to do!"];
-        return this.userRepository.find();
-    }
-
     async getUser(id: string) {
         const usr = await this.userRepository.findOne({where:{id:id}});
         if (usr){ 
             return usr;
         }
         throw new NotFoundException("User not found!");
+    }
+    
+    getUsers() {
+        if (!this.userRepository) return ["You have nothing to do!"];
+        return this.userRepository.find();
     }
 
     async updateUser(id: string, updateUserDto: UpdateUserDto) {

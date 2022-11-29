@@ -16,16 +16,16 @@ export class SkillService {
     return await this.skillRepository.save(createSkillDto);
   }
 
-  async getSkills() {
-    const skills = await this.skillRepository.find();
-    if ( ! skills.length) {throw new NotFoundException("You have no skills!");}
-    return skills;
-  }
-
   async getSkill(id: string) {
     const skill = await this.skillRepository.findOne({where :{id: id}});
     if (!skill) {throw new NotFoundException("Skill not found!");}
     return skill;
+  }
+
+  async getSkills() {
+    const skills = await this.skillRepository.find();
+    if ( ! skills.length) {throw new NotFoundException("You have no skills!");}
+    return skills;
   }
 
   async updateSkill(id: string, updateSkillDto: UpdateSkillDto) {
